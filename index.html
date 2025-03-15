@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salman MP Portfolio - Web & Graphic Designer</title>
+  <meta name="description" content="A Freelance Web & Graphic Designer based in Kerala, India. Specialized in creating beautiful, responsive websites and engaging graphic designs.">
+  <style>
+    :root {
+      --primary: #0070f3;
+      --secondary: #6b7280;
+      --background: #fff;
+      --foreground: #111827;
+      --muted: #f3f4f6;
+      --muted-foreground: #6b7280;
+      --accent: #f59e0b;
+      --border: #e5e7eb;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #0ea5e9;
+        --secondary: #9ca3af;
+        --background: #030712;
+        --foreground: #f9fafb;
+        --muted: #1f2937;
+        --muted-foreground: #9ca3af;
+        --accent: #f59e0b;
+        --border: #374151;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--foreground);
+    }
+
+    .nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav a {
+      color: var(--foreground);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 5rem 0;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--muted-foreground);
+      max-width: 36rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .cta:hover {
+      background-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .section-alt {
+      background-color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: var(--background);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--muted);
+      color: var(--muted-foreground);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      margin-right: 0.5rem;
+    }
+
+    .footer {
+      background-color: var(--muted);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted-foreground);
+      margin-top: 3rem;
+    }
+
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header container">
+    <div class="logo">Salman MP</div>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero container">
+    <h1>Hi, I'm Salman<br>A Web & Graphic Designer</h1>
+    <p>A Freelance Web & Graphic Designer based in Kerala, India. I strive to build immersive and beautiful websites through carefully crafted user-centric design.</p>
+    <a href="#contact" class="cta">Contact Me</a>
+  </section>
+
+  <section id="services" class="section section-alt">
+    <div class="container">
+      <h2>My Services</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-content">
+            <h3>Web Design</h3>
+            <p>Expert in creating responsive and user-centric designs with proficiency in various web design tools and technologies.</p>
+            <div>
+              <span class="badge">HTML/CSS</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge">WordPress</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3>Graphic Design</h3>
+            <p>Specializing in creating visually compelling designs for various media, ensuring brand consistency and engagement.</p>
+            <div>
+              <span class="badge">Logo Design</span>
+              <span class="badge">Branding</span>
+              <span class="badge">Print Design</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h3>Digital Marketing</h3>
+            <p>Comprehensive digital marketing services tailored to meet the unique needs of your business.</p>
+            <div>
+              <span class="badge">SEO</span>
+              <span class="badge">Social Media</span>
+              <span class="badge">Content Marketing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section">
+    <div class="container">
+      <h2>My Portfolio</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://ext.same-assets.com/542509979/1327173141.jpeg" alt="Website Design">
+          <div class="card-content">
+            <h3>Responsive Website Design</h3>
+            <p>A fully responsive website built with WordPress and Elementor for optimal viewing across all devices.</p>
+            <span class="badge">Web Design</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://ext.same-assets.com/1656152839/4013486423.jpeg" alt="Brochure Design">
+          <div class="card-content">
+            <h3>Brochure Design</h3>
+            <p>Professional landscape brochure design for print.</p>
+            <span class="badge">Print Design</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://ext.same-assets.com/1498376394/2515084413.jpeg" alt="Election Campaign Design">
+          <div class="card-content">
+            <h3>Election Campaign Design</h3>
+            <p>Election campaign materials including posters, flyers, and social media graphics.</p>
+            <span class="badge">Flyer Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section section-alt">
+    <div class="container">
+      <h2>About Me</h2>
+      <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <p style="margin-bottom: 1.5rem;">Experienced and passionate Web and Graphic Designer with over 7 years of expertise in both fields. My strong portfolio features a variety of design projects, including brochures, flyers, posters, and social media designs.</p>
+        <p>Proficient in Adobe Suite (Photoshop, Illustrator, Premiere, After Effects, and InDesign) and Canva, I excel at creating visually stunning and effective marketing materials, as well as modern, user-friendly websites.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container" style="max-width: 600px; text-align: center;">
+      <h2>Get In Touch</h2>
+      <p style="margin-bottom: 2rem;">Have a project in mind? Let's work together to create something amazing!</p>
+
+      <div style="margin-bottom: 2rem;">
+        <p><strong>Email:</strong> <a href="mailto:hello@salmanmp.me">hello@salmanmp.me</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+918129489071">+91 8129489071</a></p>
+        <p><strong>Location:</strong> Kerala, India</p>
+      </div>
+
+      <a href="mailto:hello@salmanmp.me" class="cta">Send Email</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="social">
+        <a href="https://www.linkedin.com/in/salmanmp/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.instagram.com/salman_kavanur/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.behance.net/salmanmp" target="_blank" rel="noopener noreferrer">Behance</a>
+        <a href="https://github.com/salmankavanur/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <p>&copy; 2024 Salman MP. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

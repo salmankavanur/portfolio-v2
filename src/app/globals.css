@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 95%;
+    --foreground: 240 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+
+    --primary: 240 10% 15%;
+    --primary-foreground: 0 0% 95%;
+
+    --secondary: 20 15% 60%;
+    --secondary-foreground: 240 10% 15%;
+
+    --muted: 240 5% 90%;
+    --muted-foreground: 240 5% 40%;
+
+    --accent: 20 25% 70%;
+    --accent-foreground: 240 10% 15%;
+
+    --destructive: 0 85% 50%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 240 5% 80%;
+    --input: 240 5% 80%;
+    --ring: 240 10% 15%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 15%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 10% 20%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 10% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 95%;
+    --primary-foreground: 240 10% 15%;
+
+    --secondary: 20 15% 40%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 240 5% 25%;
+    --muted-foreground: 240 5% 70%;
+
+    --accent: 20 25% 50%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 240 5% 30%;
+    --input: 240 5% 30%;
+    --ring: 0 0% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom font imports */
+@font-face {
+  font-family: 'Euclid Circular B';
+  src: url('https://ext.same-assets.com/1589476398/2303972730.x-font-ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Euclid Circular B';
+  src: url('https://ext.same-assets.com/3343894784/3841165195.x-font-ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Euclid Circular B';
+  src: url('https://ext.same-assets.com/1708861805/985858754.x-font-ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Custom styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Euclid Circular B', sans-serif;
+  font-weight: 700;
+}
+
+body {
+  font-family: 'Euclid Circular B', sans-serif;
+  font-weight: 400;
+}
