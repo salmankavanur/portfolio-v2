@@ -180,19 +180,19 @@ export function HeroSection() {
             animate="visible"
             variants={imageReveal}
           >
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl shadow-black/10 ring-1 ring-black/5">
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent z-10"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1.2, delay: 0.5 }}
-              />
-              <img
-                src="https://ext.same-assets.com/1352563405/518262652.webp"
-                alt="Salman MP - Freelance Web Designer in Malappuram"
-                className="object-cover w-full h-full transform transition-transform duration-700 hover:scale-105"
-              />
-            </div>
+         <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl shadow-black/10 ring-1 ring-black/5">
+  <motion.div 
+    className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl z-10" // Changed to rounded-3xl for more curvature
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1.2, delay: 0.5 }}
+  />
+  <img
+    src="https://ext.same-assets.com/1352563405/518262652.webp"
+    alt="Salman MP - Freelance Web Designer in Malappuram"
+    className="object-cover w-full h-full transform transition-transform duration-700 hover:scale-105"
+  />
+</div>
             
             <motion.div
               className="absolute -bottom-8 -left-8 bg-background/80 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-muted"
