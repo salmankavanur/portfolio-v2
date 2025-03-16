@@ -1,13 +1,12 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import dbConnect from "@/lib/db";
 import User from "@/models/User";
-import { NextAuthConfig } from "next-auth";
 import { NextRequest } from "next/server";
 import crypto from "crypto";
 
 // Configuration for NextAuth
-const authConfig: NextAuthConfig = {
+const authConfig: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -32,7 +31,7 @@ const authConfig: NextAuthConfig = {
 
           // Verify password
           const passwordHash = crypto
-            .pbkdf2Sync(credentials.password, user.salt, 1000, 64, 'sha512')
+            .pbkdf2Sync(String(credentials.password), user.salt, 1000, 64, 'sha512')
             .toString('hex');
 
           const isValidPassword = user.passwordHash === passwordHash;
@@ -45,7 +44,6 @@ const authConfig: NextAuthConfig = {
           user.lastLogin = new Date();
           await user.save();
 
-          // Return only the data needed by NextAuth
           return {
             id: user._id.toString(),
             name: user.name,
@@ -61,16 +59,14 @@ const authConfig: NextAuthConfig = {
     })
   ],
   callbacks: {
-    async jwt({ token, user }) {
-      // Add additional information to the token
+    async jwt({ token, user }: { token: any; user?: any }) {
       if (user) {
         token.id = user.id;
         token.role = user.role;
       }
       return token;
     },
-    async session({ session, token }) {
-      // Add additional information to the session
+    async session({ session, token }: { session: any; token: any }) {
       if (token && session.user) {
         session.user.id = token.id as string;
         session.user.role = token.role as string;
@@ -88,9 +84,7 @@ const authConfig: NextAuthConfig = {
   secret: process.env.NEXTAUTH_SECRET || "supersecret",
 };
 
-// Handler function for API route
-async function handler(req: NextRequest, context: { params: { nextauth: string[] } }) {
-  return NextAuth(req, context, authConfig);
-}
+// Create NextAuth handler
+const handler = NextAuth(authConfig);
 
 export { handler as GET, handler as POST };
